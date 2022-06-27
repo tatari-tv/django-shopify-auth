@@ -3,6 +3,10 @@ name: Tests
 on:
   push: {}
 
+permissions:
+  actions: read
+  contents: read
+
 jobs:
   build:
 
