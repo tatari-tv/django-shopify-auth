@@ -3,14 +3,14 @@ from setuptools import setup, find_packages
 version = __import__('shopify_auth').__version__
 
 setup(
-    name='django-shopify-auth',
+    name='ttv-django-shopify-auth',
     version=version,
     description='A simple package for adding Shopify authentication to Django apps.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    author='Gavin Ballard',
+    author='Gavin Ballard, patched by Kienan Knight-Boehm',
     author_email='gavin@discolabs.com',
-    url='https://github.com/discolabs/django-shopify-auth',
+    url='https://github.com/tatari-tv/django-shopify-auth',
     license='MIT',
 
     packages=find_packages(),

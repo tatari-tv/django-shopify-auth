@@ -29,3 +29,11 @@ jobs:
     - name: Tests
       run: |
         python test.py
+  pypi:
+    name: PyPi Upload
+    if: github.ref == 'refs/heads/main'
+    uses: tatari-tv/github-actions/.github/workflows/pypi.yml@v1.0
+    secrets: inherit
+    with:
+      sdist: 'true'
+      release: 'false'
