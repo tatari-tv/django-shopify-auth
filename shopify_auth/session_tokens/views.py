@@ -1,6 +1,7 @@
 import logging
 
 from django.conf import settings
+from django.contrib import auth
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, reverse
 from django.views.generic.base import View
@@ -41,6 +42,10 @@ class FinalizeAuthView(View):
 
         shop = get_user_model().update_or_create(shopify_session, request)
         shop.install(request)
+
+        user = auth.authenticate(request=request, myshopify_domain=shopify_session.url, token=shopify_session.token)
+        if user:
+            auth.login(request, user)
 
         return HttpResponseRedirect(
             f"https://{myshopify_domain}/admin/apps/{settings.SHOPIFY_APP_API_KEY}"
